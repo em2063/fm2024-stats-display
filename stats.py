@@ -135,5 +135,5 @@ stats_data['str'] = (stats_data['str_essential'] + stats_data['str_required'] + 
 final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
                              'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
 
-#export as html file
+#export as html file for clear data viewing
 final_ratings.to_html('team_ratings.html')
