@@ -39,7 +39,7 @@ stats_data['gk'] = (stats_data['gk_essential'] + stats_data['gk_core'] + stats_d
 stats_data['wb_essential'] = (stats_data['Spd'] + stats_data['Work'] + stats_data['Cro']) * 5
 
 #calculate required stats rating
-stats_data['wb_core'] = (stats_data['Dri'] + stats_data['Tck'] + stats_data['Tec'] + stats_data['Otb']
+stats_data['wb_core'] = (stats_data['Dri'] + stats_data['Tck'] + stats_data['Tec'] + stats_data['OtB']
                         + stats_data['Tea']) * 3
 
 #calculate useful stats rating
@@ -129,3 +129,11 @@ stats_data['str_secondary'] = stats_data['Pas'] + stats_data['Bal']
 
 #Calculate final rating for STRIKER position
 stats_data['str'] = (stats_data['str_essential'] + stats_data['str_required'] + stats_data['str_secondary']) / 42
+
+
+#Create a new dataframe with only the data we want to view
+final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
+                             'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
+
+#export as html file
+final_ratings.to_html('team_ratings.html')
