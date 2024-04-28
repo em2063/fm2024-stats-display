@@ -57,7 +57,7 @@ def gkRating():
                                 stats_data['Dec'] + stats_data['Acc'] + stats_data['Cmp'])
 
     #Calculate final average for goalkeeper stats
-    stats_data['gk'] = (stats_data['gk_essential'] + stats_data['gk_core'] + stats_data['gk_secondary']) / 39
+    stats_data['gk'] = ((stats_data['gk_essential'] + stats_data['gk_core'] + stats_data['gk_secondary']) / 39).round(1)
 
 
 #calculate rating for wing back position
@@ -75,7 +75,7 @@ def fbRating():
                                 stats_data['Agi'] + stats_data['Bal'])
 
     #Calculate final average for fullback rating
-    stats_data['fb'] = (stats_data['wb_essential'] + stats_data['wb_core'] + stats_data['wb_secondary']) / 40
+    stats_data['fb'] = ((stats_data['wb_essential'] + stats_data['wb_core'] + stats_data['wb_secondary']) / 40).round(1)
 
 
 #Calculate rating for centre back position
@@ -93,7 +93,7 @@ def cbRating():
                                 + stats_data['Cnt'])
 
     #calculate final average rating for centre back
-    stats_data['cb'] = (stats_data['cb_essential'] + stats_data['cb_core'] + stats_data['cb_secondary']) / 45
+    stats_data['cb'] = ((stats_data['cb_essential'] + stats_data['cb_core'] + stats_data['cb_secondary']) / 45).round(1)
 
 
 #Calculate rating for defensive midifled position
@@ -109,7 +109,7 @@ def dmRating():
                                 + stats_data['Str'])
 
     #Calculate final rating for defensive midfielder
-    stats_data['dm'] = (stats_data['dm_essential'] + stats_data['dm_required'] + stats_data['dm_secondary']) / 34
+    stats_data['dm'] = ((stats_data['dm_essential'] + stats_data['dm_required'] + stats_data['dm_secondary']) / 34).round(1)
 
 
 #Calculate rating for ball-winning-midfielder
@@ -125,7 +125,7 @@ def bwmRating():
                                 + stats_data['Str'])
 
     #Calculate final rating for defensive midfielder
-    stats_data['bwm'] = (stats_data['bwm_essential'] + stats_data['bwm_required'] + stats_data['bwm_secondary']) / 37
+    stats_data['bwm'] = ((stats_data['bwm_essential'] + stats_data['bwm_required'] + stats_data['bwm_secondary']) / 37).round(1)
 
 
 #Calculate attribute rating for winger position
@@ -139,7 +139,7 @@ def wingerRating():
     #calculate useful attributes rating
     stats_data['w_secondary'] = (stats_data['Fir'] + stats_data['Pas'] + stats_data['OtB'] + stats_data['Bal'])
 
-    stats_data['w'] = (stats_data['w_essential'] + stats_data['w_required'] + stats_data['w_secondary']) / 30
+    stats_data['w'] = ((stats_data['w_essential'] + stats_data['w_required'] + stats_data['w_secondary']) / 30).round(1)
 
 #Calculate attribute rating for STRIKER position
 def strikerRating():
@@ -155,7 +155,7 @@ def strikerRating():
     stats_data['str_secondary'] = stats_data['Pas'] + stats_data['Bal']
 
     #Calculate final rating for STRIKER position
-    stats_data['str'] = (stats_data['str_essential'] + stats_data['str_required'] + stats_data['str_secondary']) / 42
+    stats_data['str'] = ((stats_data['str_essential'] + stats_data['str_required'] + stats_data['str_secondary']) / 42).round(1)
 
 if __name__ == "__main__":
     main()
