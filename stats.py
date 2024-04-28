@@ -1,7 +1,7 @@
 import pandas as pd #import pd for html manipulation
 
 # Open file that holds imported team stats from football manager game
-with open("stats.html", "r") as stats_file:
+with open("C:/Users/eatth/OneDrive/Documents/Sports Interactive/Football Manager 2024/stats/stats.html", "r", encoding="utf-8") as stats_file:
     player_stats = stats_file.read()
 
 
@@ -19,25 +19,23 @@ def main():
     print("Select your use case:")
     print("1. Team Analysis")
     print("2. Scouting")
-    input = input("> ")
+    user = input("> ")
     
-    if input == 1:
+    if user == "1":
         final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
                                 'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
+        final_ratings.to_html('C:/Users/eatth/OneDrive/Desktop/fm_stats/team_ratings.html')
     else:
-        final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
+        final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position','Transfer Value', 'Wage', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
                                 'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
-
-
-    #export as html file for clear data viewing
-    final_ratings.to_html('team_ratings.html')
+        final_ratings.to_html('C:/Users/eatth/OneDrive/Desktop/fm_stats/scout_ratings.html')
 
 
 #configure pd
 stats_data_list = pd.read_html(player_stats, header=0, encoding="utf-8")
 stats_data = stats_data_list[0] #turn into dataframe
-
-
+        
+        
 #calculate basic workrate factors to add into dataframe
 stats_data['Spd'] = (stats_data['Acc'] + stats_data['Pac']) / 2 #Calculate speed
 stats_data['Work'] = (stats_data['Wor'] + stats_data['Sta']) / 2 #Calculate Workrate
