@@ -13,6 +13,7 @@ def main():
     cbRating()
     dmRating()
     bwmRating()
+    attmidRating()
     wingerRating()
     strikerRating()
 
@@ -23,11 +24,11 @@ def main():
     
     if user == "1":
         final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
-                                'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
+                                'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'attmid', 'w', 'str']].copy()
         final_ratings.to_html('C:/Users/eatth/OneDrive/Desktop/fm_stats/team_ratings.html')
     else:
         final_ratings = stats_data[['Inf', 'Name', 'Age', 'Position','Transfer Value', 'Wage', 'Personality', 'Media Handling', 'Left Foot', 'Right Foot',
-                                'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'w', 'str']].copy()
+                                'Av Rat', 'Height','gk', 'fb', 'cb', 'dm', 'bwm', 'attmid', 'w', 'str']].copy()
         final_ratings.to_html('C:/Users/eatth/OneDrive/Desktop/fm_stats/scout_ratings.html')
 
 
@@ -126,6 +127,22 @@ def bwmRating():
 
     #Calculate final rating for defensive midfielder
     stats_data['bwm'] = ((stats_data['bwm_essential'] + stats_data['bwm_required'] + stats_data['bwm_secondary']) / 37).round(1)
+
+def attmidRating():
+    #calculate rating for essential attributes
+    stats_data['attmid_essential'] = (stats_data['Ant'] + stats_data['Cmp'] + stats_data['Fir'] + stats_data['Dec']
+                                       + stats_data['Work']) * 5
+    
+    #Calculate rating for required stats
+    stats_data['attmid_required'] = (stats_data['OtB'] + stats_data['Fin'] + stats_data['Fla'] + stats_data['Lon'] + stats_data['Dri']
+                                     + stats_data['Cro'] + stats_data['Pas'] + stats_data['Tck'] + stats_data['Spd']) * 3
+    
+    #Calculate rating for useful stats
+    stats_data['attmid_useful'] = (stats_data['Vis'] + stats_data['Bal'])
+
+    #Calculate final rating for Attacking Midfielder
+    stats_data['attmid'] = ((stats_data['attmid_essential'] + stats_data['attmid_required'] + stats_data['attmid_useful']) / 54).round(1)
+
 
 
 #Calculate attribute rating for winger position
